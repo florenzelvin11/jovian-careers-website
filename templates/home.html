@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jovian Careers</title>
+    <title>{{company_name}} Careers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -17,16 +17,20 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mt-2 mb-4">Jovian Careers</h1>
+        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
         <img class="img-fluid" id="banner" src="../static/banner.jpg" alt="banner">
-        <h2 class="text-center mt-2 mb-4">About Jovian</h2>
+        <h2 class="text-center mt-2 mb-4">About {{company_name}}</h2>
         <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, laboriosam necessitatibus maiores 
             quisquam omnis distinctio aut corporis assumenda totam? Aliquam repellat facilis consequuntur, 
             perspiciatis expedita asperiores consectetur excepturi ducimus recusandae neque mollitia officiis in? 
             Doloremque, quibusdam odit voluptates sed iure cum quidem tempora aliquid. Repellendus illum quaerat minus ipsum amet.
         </p>
         <h2 class="text-center mt-2 mb-4">Open Positions</h2>
-        <p class="body-text">TODO - Show the jobs here</p>
+        <p class="body-text">
+            {% for job in jobs %}
+                {% include 'jobitem.html' %}
+            {% endfor %}
+        </p>
         <div class="text-center">
             <button class="btn btn-primary btn-lg">Contact Us</button>
             <p class="mt-4">Copyright 2023, Jovian</p>

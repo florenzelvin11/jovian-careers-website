@@ -1,0 +1,27 @@
+<!-- print.html -->
+<!DOCTYPE html>
+<html>
+<body>
+  <button type="button" onclick="generatePDF()">Generate PDF and Print</button>
+
+  <script>
+    function generatePDF() {
+      const pdfContent = "<h1>PDF Content</h1><p>This is the content you want to print.</p>";
+
+      fetch('/print', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: pdfContent }),
+      }).then(response => {
+        if (response.ok) {
+          alert("Printed to shared printer successfully!");
+        } else {
+          alert("Failed to print to shared printer.");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
